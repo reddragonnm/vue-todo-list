@@ -4,7 +4,7 @@
       :class="{ checkbox: true, checked: checked }"
       @click="checked = !checked"
     >
-      <p>{{ checked ? "✔️" : "" }}</p>
+      <i class="fas fa-check" v-show="checked"></i>
     </div>
   </div>
 </template>
@@ -46,9 +46,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    transition: all 0.2s ease;
   }
 
-  .checked {
-    background: lightblue;
+  .checkbox:hover {
+    background: rgb(230, 230, 230);
+  }
+
+  i {
+    color: rgb(141, 235, 1);
+    font-size: 23px;
   }
 </style>
