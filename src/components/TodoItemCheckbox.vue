@@ -8,9 +8,13 @@
   export default {
     name: "TodoItemCheckbox",
 
+    props: {
+      checkedInit: Boolean,
+    },
+
     data() {
       return {
-        checked: false,
+        checked: this.checkedInit,
       };
     },
 

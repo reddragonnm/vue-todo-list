@@ -1,6 +1,9 @@
 <template>
   <div class="todo">
-    <TodoItemCheckbox @checkbox-toggle="$emit('todo-done-toggle')" />
+    <TodoItemCheckbox
+      :checkedInit="done"
+      @checkbox-toggle="$emit('todo-done-toggle')"
+    />
 
     <p :class="{ done }">{{ text }}</p>
 
