@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div
-      :class="{ checkbox: true, checked: checked }"
-      @click="checked = !checked"
-    >
+    <div class="checkbox" @click="checked = !checked">
       <i class="fas fa-check" v-show="checked"></i>
     </div>
   </div>
@@ -36,6 +33,11 @@
     font-size: 20px;
   }
 
+  i {
+    color: rgb(141, 235, 1);
+    font-size: 23px;
+  }
+
   .checkbox {
     cursor: pointer;
 
@@ -52,10 +54,5 @@
 
   .checkbox:hover {
     background: rgb(230, 230, 230);
-  }
-
-  i {
-    color: rgb(141, 235, 1);
-    font-size: 23px;
   }
 </style>

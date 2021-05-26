@@ -26,8 +26,18 @@
 </script>
 
 <style scoped>
+  p {
+    font-size: 30px;
+  }
+
+  i {
+    font-size: 20px;
+  }
+
   .todo {
-    width: 60%;
+    background: white;
+    width: 50%;
+    user-select: none;
 
     display: flex;
     flex-direction: row;
@@ -35,10 +45,10 @@
     align-items: center;
 
     border: 2px solid rgba(150, 150, 150, 0.4);
-    border-radius: 30px;
+    border-radius: 20px;
 
     margin: 30px auto;
-    padding: 25px;
+    padding: 20px;
 
     transition: all 0.2s ease;
   }
@@ -49,10 +59,6 @@
 
   .done {
     text-decoration: line-through;
-  }
-
-  p {
-    font-size: 20px;
   }
 
   .delete-icon {

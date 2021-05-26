@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="todos" v-for="(todo, index) in todos" :key="index">
+    <div class="todos" v-for="todo in todos" :key="todo.id">
       <TodoItem
         :text="todo.text"
         :done="todo.done"
-        @todo-done-toggle="toggleTodo(index)"
-        @remove-todo="removeTodo(index)"
+        @todo-done-toggle="toggleTodo(todo.id)"
+        @remove-todo="removeTodo(todo.id)"
       />
     </div>
   </div>
@@ -26,19 +26,27 @@
     created() {
       this.addTodo("hello");
       this.addTodo("world");
+      this.addTodo("world");
+      this.addTodo("world");
+      this.addTodo("world");
     },
 
     methods: {
       addTodo(text) {
-        this.todos.unshift({ text: text, done: false });
+        this.todos.push({ id: this.todos.length, text: text, done: false });
       },
 
-      toggleTodo(index) {
-        this.todos[index].done = !this.todos[index].done;
+      toggleTodo(id) {
+        this.todos = this.todos.map((obj) => {
+          if (obj.id == id) {
+            return { ...obj, done: !obj.done };
+          }
+          return obj;
+        });
       },
 
-      removeTodo(index) {
-        this.todos.splice(index, 1);
+      removeTodo(id) {
+        this.todos = this.todos.filter((obj) => obj.id != id);
       },
     },
 
