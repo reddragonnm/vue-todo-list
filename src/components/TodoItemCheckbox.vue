@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <div class="checkbox" @click="checked = !checked">
-      <i class="fas fa-check" v-show="checked"></i>
-    </div>
+  <div class="checkbox" @click="checked = !checked">
+    <i class="fas fa-check" v-show="checked"></i>
   </div>
 </template>
 

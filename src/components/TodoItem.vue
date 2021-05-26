@@ -4,7 +4,7 @@
 
     <p :class="{ done }">{{ text }}</p>
 
-    <i @click="$emit('remove-todo')" class="far fa-trash-alt delete-icon"></i>
+    <i @click="$emit('remove-todo')" class="fas fa-trash-alt delete-icon"></i>
   </div>
 </template>
 
@@ -45,7 +45,7 @@
     align-items: center;
 
     border: 2px solid rgba(150, 150, 150, 0.4);
-    border-radius: 20px;
+    border-radius: 25px;
 
     margin: 30px auto;
     padding: 20px;

@@ -1,5 +1,7 @@
 <template>
   <div>
+    <TodoHeading :todosEmpty="todos.length == 0" @new-todo="newTodo" />
+
     <div class="todos" v-for="todo in todos" :key="todo.id">
       <TodoItem
         :text="todo.text"
@@ -13,9 +15,15 @@
 
 <script>
   import TodoItem from "./components/TodoItem";
+  import TodoHeading from "./components/TodoHeading";
 
   export default {
     name: "App",
+
+    components: {
+      TodoItem,
+      TodoHeading,
+    },
 
     data() {
       return {
@@ -23,35 +31,20 @@
       };
     },
 
-    created() {
-      this.addTodo("hello");
-      this.addTodo("world");
-      this.addTodo("world");
-      this.addTodo("world");
-      this.addTodo("world");
-    },
-
     methods: {
-      addTodo(text) {
+      newTodo(text) {
         this.todos.push({ id: this.todos.length, text: text, done: false });
       },
 
       toggleTodo(id) {
-        this.todos = this.todos.map((obj) => {
-          if (obj.id == id) {
-            return { ...obj, done: !obj.done };
-          }
-          return obj;
-        });
+        this.todos = this.todos.map((obj) =>
+          obj.id == id ? { ...obj, done: !obj.done } : obj
+        );
       },
 
       removeTodo(id) {
         this.todos = this.todos.filter((obj) => obj.id != id);
       },
-    },
-
-    components: {
-      TodoItem,
     },
   };
 </script>
@@ -65,5 +58,25 @@
 
   body {
     font-family: sans-serif;
+  }
+
+  /* custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
   }
 </style>
